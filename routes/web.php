@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,6 +18,10 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('category',        [CategoryController::class, 'index'])->name('categories.index');
+Route::get('category-create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('category-store', [CategoryController::class, 'store'])->name('categories.store');
 
 
 });

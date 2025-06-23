@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Store Management System - Dashboard</title>
-    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏪</text></svg>">
+    <link rel="shortcut icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏪</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <style>
         * {
@@ -133,7 +137,8 @@
             gap: 0.5rem;
         }
 
-        .notification-btn, .profile-btn {
+        .notification-btn,
+        .profile-btn {
             position: relative;
             background: none;
             border: none;
@@ -145,7 +150,8 @@
             transition: var(--transition);
         }
 
-        .notification-btn:hover, .profile-btn:hover {
+        .notification-btn:hover,
+        .profile-btn:hover {
             background-color: var(--light-color);
             color: var(--primary-color);
         }
@@ -323,10 +329,21 @@
             box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
         }
 
-        .stat-card.success::before { background: linear-gradient(90deg, var(--success-color), #059669); }
-        .stat-card.warning::before { background: linear-gradient(90deg, var(--warning-color), #d97706); }
-        .stat-card.danger::before { background: linear-gradient(90deg, var(--danger-color), #dc2626); }
-        .stat-card.info::before { background: linear-gradient(90deg, var(--info-color), #0891b2); }
+        .stat-card.success::before {
+            background: linear-gradient(90deg, var(--success-color), #059669);
+        }
+
+        .stat-card.warning::before {
+            background: linear-gradient(90deg, var(--warning-color), #d97706);
+        }
+
+        .stat-card.danger::before {
+            background: linear-gradient(90deg, var(--danger-color), #dc2626);
+        }
+
+        .stat-card.info::before {
+            background: linear-gradient(90deg, var(--info-color), #0891b2);
+        }
 
         .stat-header {
             display: flex;
@@ -347,10 +364,21 @@
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
         }
 
-        .stat-icon.success { background: linear-gradient(135deg, var(--success-color), #059669); }
-        .stat-icon.warning { background: linear-gradient(135deg, var(--warning-color), #d97706); }
-        .stat-icon.danger { background: linear-gradient(135deg, var(--danger-color), #dc2626); }
-        .stat-icon.info { background: linear-gradient(135deg, var(--info-color), #0891b2); }
+        .stat-icon.success {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+        }
+
+        .stat-icon.warning {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+        }
+
+        .stat-icon.danger {
+            background: linear-gradient(135deg, var(--danger-color), #dc2626);
+        }
+
+        .stat-icon.info {
+            background: linear-gradient(135deg, var(--info-color), #0891b2);
+        }
 
         .stat-value {
             font-size: 2rem;
@@ -373,8 +401,13 @@
             gap: 0.25rem;
         }
 
-        .stat-change.positive { color: var(--success-color); }
-        .stat-change.negative { color: var(--danger-color); }
+        .stat-change.positive {
+            color: var(--success-color);
+        }
+
+        .stat-change.negative {
+            color: var(--danger-color);
+        }
 
         /* Charts Section */
         .charts-section {
@@ -537,6 +570,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -589,8 +623,10 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.3);
         }
+
     </style>
 </head>
+
 <body>
     <div class="main-wrapper">
         @include('layouts.sidebar')
@@ -680,7 +716,7 @@
 
             // Add smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
@@ -717,5 +753,8 @@
         `;
         document.head.appendChild(style);
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
