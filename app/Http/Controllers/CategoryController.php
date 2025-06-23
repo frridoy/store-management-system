@@ -40,7 +40,7 @@ class CategoryController extends Controller
                 'category_name' => $request->category_name,
                 'category_code' => $request->category_code,
                 'description'   => $request->description,
-                'status'        => $request->statuss,
+                'status'        => $request->status,
                 'created_by'    => $authId,
             ]);
 
