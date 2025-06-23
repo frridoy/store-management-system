@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
+
+    public function index()
+    {
+        $categories = Category::with('creator:id,name')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('categories.index', compact('categories'));
+    }
     public function create()
     {
         return view('categories.create');
@@ -31,17 +40,14 @@ class CategoryController extends Controller
                 'category_name' => $request->category_name,
                 'category_code' => $request->category_code,
                 'description'   => $request->description,
-                'status'        => $request->status,
+                'status'        => $request->statuss,
                 'created_by'    => $authId,
             ]);
 
             return redirect()->route('categories.create')->with('success', 'Category created successfully.');
+        } catch (\Exception $e) {
 
-        }
-
-        catch (\Exception $e) {
-
-              Log::error('An error occurred: ' . $e->getMessage());
+            Log::error('An error occurred for Store Category: ' . $e->getMessage());
 
             return back()->withErrors('Something went wrong while creating the category.')->withInput();
         }

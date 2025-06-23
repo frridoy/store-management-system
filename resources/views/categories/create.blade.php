@@ -32,7 +32,7 @@
                         <!-- Category Name -->
                         <div class="mb-4">
                             <label for="category_name" class="form-label fw-semibold">
-                                <span class="text-danger">*</span> Category Name
+                                Category Name <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light">
@@ -44,11 +44,10 @@
                                     placeholder="e.g. Electronics, Clothing" required>
                             </div>
                             @error('category_name')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                <div class="text-danger small mt-1 ms-2">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <!-- Category Code and Status -->
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <label for="category_code" class="form-label fw-semibold">Category Code</label>
@@ -59,10 +58,10 @@
                                     <input type="text" name="category_code" id="category_code"
                                         class="form-control"
                                         value="{{ old('category_code') }}"
-                                        placeholder="e.g. ELEC, CLOTH">
+                                        placeholder="e.g. CLOTH">
                                 </div>
                                 @error('category_code')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    <div class="text-danger small mt-1 ms-2">{{ $message }}</div>
                                 @enderror
                             </div>
 
@@ -127,22 +126,4 @@
         padding: 0.5rem 1.5rem;
     }
 </style>
-
-<script>
-    // Client-side validation
-    (function() {
-        'use strict';
-        const forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms)
-            .forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-    })();
-</script>
 @endsection
