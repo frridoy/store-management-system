@@ -43,7 +43,8 @@
                             class="form-select @error('category_id') is-invalid @enderror" required>
                             <option value="">-- Select Category --</option>
                             @foreach ($categories as $category)
-                               <option value="{{$category->id}}">{{$category->category_code}} - {{$category->category_name}}</option>
+                                <option value="{{ $category->id }}">{{ $category->category_code }} -
+                                    {{ $category->category_name }}</option>
                             @endforeach
                         </select>
                         @error('category_id')
@@ -144,6 +145,7 @@
                         <label for="images" class="form-label">Product Images</label>
                         <input type="file" name="images[]" id="images"
                             class="form-control @error('images.*') is-invalid @enderror" multiple>
+                        <div id="image-preview" class="mt-3 row"></div>
                         @error('images.*')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -157,3 +159,37 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.getElementById('images').addEventListener('change', function(event) {
+            const previewContainer = document.getElementById('image-preview');
+            previewContainer.innerHTML = '';
+
+            const files = event.target.files;
+
+            Array.from(files).forEach(file => {
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-3 mb-3';
+
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = 'Selected Image';
+                        img.className = 'img-thumbnail';
+                        img.style.height = '150px';
+                        img.style.objectFit = 'cover';
+
+                        col.appendChild(img);
+                        previewContainer.appendChild(col);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+@endpush

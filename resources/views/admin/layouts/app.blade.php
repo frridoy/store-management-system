@@ -635,6 +635,8 @@
 
         @yield('content')
     </div>
+    
+    @stack('scripts')
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
