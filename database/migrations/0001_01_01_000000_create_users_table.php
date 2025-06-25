@@ -16,8 +16,26 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->tinyInteger('user_type');
+            $table->string('branch_name');
+            $table->bigInteger('branch_code');
+            $table->string('personal_phone_no');
+            $table->string('official_phone_no');
+            $table->date('joining_date');
+            $table->date('regined_date');
+            $table->date('dob');
+            $table->tinyInteger('sex')->comment('1=male, 2=female, 3=other');
+            $table->tinyInteger('age');
+            $table->tinyInteger('marital_status')->comment('1=married, 2=unmarried');
+            $table->string('present_division')->nullable();
+            $table->string('present_district')->nullable();
+            $table->string('present_thana')->nullable();
+            $table->string('permanent_division')->nullable();
+            $table->string('permanent_district')->nullable();
+            $table->string('permanent_thana')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->bigInteger('created_by')->nullable();
             $table->timestamps();
         });
 

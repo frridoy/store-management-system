@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +28,10 @@ Route::post('category-store', [CategoryController::class, 'store'])->name('categ
 Route::get('product',        [ProductController::class, 'index'])->name('products.index');
 Route::get('product-create', [ProductController::class, 'create'])->name('products.create');
 Route::post('product-store', [ProductController::class, 'store'])->name('products.store');
+
+
+Route::get('/employee-register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/employee-register-store', [RegisterController::class, 'register'])->name('register.store');
 
 
 });
