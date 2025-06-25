@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -32,6 +33,10 @@ Route::post('product-store', [ProductController::class, 'store'])->name('product
 
 Route::get('/employee-register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/employee-register-store', [RegisterController::class, 'register'])->name('register.store');
+
+
+Route::get('/branch-create', [BranchController::class, 'create'])->name('branches.create');
+Route::post('/branch-store', [BranchController::class, 'store'])->name('branches.store');
 
 
 });

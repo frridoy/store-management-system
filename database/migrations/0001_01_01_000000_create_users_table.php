@@ -17,12 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->tinyInteger('user_type');
-            $table->string('branch_name');
-            $table->bigInteger('branch_code');
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->tinyInteger('status');
             $table->string('personal_phone_no');
             $table->string('official_phone_no');
             $table->date('joining_date');
-            $table->date('regined_date');
+            $table->date('regined_date')->nullable();
             $table->date('dob');
             $table->tinyInteger('sex')->comment('1=male, 2=female, 3=other');
             $table->tinyInteger('age');
