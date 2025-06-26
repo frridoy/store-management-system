@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
+    public function index()
+    {
+        $users = User::with('branch:id,name,code')->get();
+        return view('register.index', compact('users'));
+    }
     public function showRegistrationForm()
     {
         $branches = Branch::select('id', 'name', 'code')->where('status', 1)->get();

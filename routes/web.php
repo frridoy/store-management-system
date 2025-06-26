@@ -31,6 +31,7 @@ Route::get('product-create', [ProductController::class, 'create'])->name('produc
 Route::post('product-store', [ProductController::class, 'store'])->name('products.store');
 
 
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/employee-register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/employee-register-store', [RegisterController::class, 'register'])->name('register.store');
 
