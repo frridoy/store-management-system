@@ -39,5 +39,4 @@ Route::post('/employee-register-store', [RegisterController::class, 'register'])
 Route::get('/branch-create', [BranchController::class, 'create'])->name('branches.create');
 Route::post('/branch-store', [BranchController::class, 'store'])->name('branches.store');
 
-
 });
